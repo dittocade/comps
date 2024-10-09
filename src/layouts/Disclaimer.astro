@@ -1,9 +1,11 @@
 ---
+interface Props {
+  origin?: boolean;
+}
 
+const { origin = "https://fancade.club" } = Astro.props;
 ---
 
 We are <strong>not</strong> affiliated with <strong>Fancade</strong>. See <a
-  href="https://fancade.club/disclaimer">our disclaimer</a
->. For inquiries, please <a href="https://fancade.club/contact"
-  >contact us</a
->.
+  href=`${origin}/disclaimer`>our disclaimer</a
+>. For inquiries, please <a href=`${origin}/contact`>contact us</a>.
