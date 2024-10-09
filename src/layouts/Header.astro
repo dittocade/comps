@@ -3,9 +3,10 @@ import { Image } from "astro:assets";
 
 interface Props {
   image: any;
+  title: string;
 }
 
-const { image } = Astro.props;
+const { image, title } = Astro.props;
 ---
 
 <header>
@@ -19,7 +20,7 @@ const { image } = Astro.props;
           alt="Icon of the Fancade Club"
           loading="eager"
         />
-        <span>Club</span>
+        <span>{title}</span>
       </h1>
     </a>
     <slot />
