@@ -1,0 +1,18 @@
+---
+type Props = astroHTML.JSX.AnchorHTMLAttributes;
+---
+
+<a {...Astro.props}><slot /></a>
+
+<style>
+  a {
+    color: unset;
+    text-decoration-thickness: 0px;
+    text-decoration-color: #33333300;
+    transition: all 0.2s;
+  }
+  a:hover {
+    text-decoration-thickness: 3px;
+    text-decoration-color: #333333ff;
+  }
+</style>

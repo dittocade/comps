@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import NavLink from "./NavLink.astro";
 
 interface Props {
   image: any;
@@ -11,7 +12,7 @@ const { image, title } = Astro.props;
 
 <header>
   <div class="content">
-    <a href="/">
+    <NavLink href="/">
       <h1>
         <Image
           src={image}
@@ -22,7 +23,7 @@ const { image, title } = Astro.props;
         />
         <span>{title}</span>
       </h1>
-    </a>
+    </NavLink>
     <slot />
   </div>
 </header>
@@ -53,15 +54,5 @@ const { image, title } = Astro.props;
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-  header:global(a) {
-    color: unset;
-    text-decoration-thickness: 0px;
-    text-decoration-color: #33333300;
-    transition: all 0.2s;
-  }
-  header:global(a:hover) {
-    text-decoration-thickness: 3px;
-    text-decoration-color: #333333ff;
   }
 </style>
