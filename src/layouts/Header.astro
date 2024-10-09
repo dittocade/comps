@@ -44,7 +44,7 @@ const { image, title } = Astro.props;
     align-items: center;
     gap: 1em;
   }
-  content:first-child {
+  .content:first-child {
     margin-right: auto;
   }
   h1 {
@@ -54,13 +54,13 @@ const { image, title } = Astro.props;
     align-items: center;
     gap: 1rem;
   }
-  a {
+  header:global(a) {
     color: unset;
     text-decoration-thickness: 0px;
     text-decoration-color: #33333300;
     transition: all 0.2s;
   }
-  a:hover {
+  header:global(a:hover) {
     text-decoration-thickness: 3px;
     text-decoration-color: #333333ff;
   }
