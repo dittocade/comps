@@ -1,0 +1,52 @@
+{
+  "name": "@fancade-club/comps",
+  "license": "MIT",
+  "author": "Fancade Club",
+  "type": "module",
+  "exports": {
+    "./": "./src/"
+  },
+  "scripts": {
+    "astro": "astro",
+    "format": "$npm_execpath run format:package; $npm_execpath run format:prettier && $npm_execpath run format:eslint",
+    "format:eslint": "eslint --fix src/",
+    "format:package": "npx format-package -w ./**/package.json",
+    "format:prettier": "prettier --write .",
+    "prepare": "husky || true"
+  },
+  "lint-staged": {
+    "!(*.(c|m)?(t|j)s|*.astro|package.json)": "prettier --ignore-unknown --write",
+    "package.json": "format-package -w",
+    "(*.(c|m)?(t|j)s|*.astro)": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
+  },
+  "overrides": {
+    "format-package": {
+      "prettier": ">=3.3.3"
+    }
+  },
+  "peerDependencies": {
+    "astro": "^5.0.0-beta.4"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/js": "^9.10.0",
+    "@types/eslint__js": "^8.42.3",
+    "commitlint": "^19.5.0",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "format-package": "^7.0.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "sort-package-json": "^2.10.1",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0"
+  }
+}
