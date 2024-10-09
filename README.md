@@ -1,6 +1,6 @@
 # Fancade Club Components
 
-Shared UI components for the Fancade Club. 
+Shared UI components for the Fancade Club.
 
 ## Building
 
@@ -8,7 +8,7 @@ You'll need `git`, `node 18+` and `npm` to get started.
 
 ```sh
 # Cloning the repository
-git clone https://github.com/fancade-club/club
+git clone https://github.com/fancade-club/comp
 cd ./club
 
 # Installing dependencies
