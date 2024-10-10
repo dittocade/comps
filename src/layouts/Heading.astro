@@ -28,6 +28,8 @@ const { level, id } = Astro.props;
 const Element = elements[level];
 ---
 
-<NavLink class="heading-link" href={`#${id}`}>
-  <Element {...Astro.props}><slot /></Element>
-</NavLink>
+<Element {...Astro.props}>
+  <NavLink class="heading-link" href={`#${id}`}>
+    <slot />
+  </NavLink>
+</Element>
