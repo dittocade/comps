@@ -1,0 +1,33 @@
+---
+import NavLink from "./NavLink.astro";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  level: Level;
+  id: string;
+}
+
+export enum Level {
+  H1 = 1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+}
+
+const elements = {
+  [Level.H1]: "h1",
+  [Level.H2]: "h2",
+  [Level.H3]: "h3",
+  [Level.H4]: "h4",
+  [Level.H5]: "h5",
+  [Level.H6]: "h6",
+};
+
+const { level, id } = Astro.props;
+const Element = elements[level];
+---
+
+<NavLink class="heading-link" href={`#${id}`}>
+  <Element {...Astro.props}><slot /></Element>
+</NavLink>
