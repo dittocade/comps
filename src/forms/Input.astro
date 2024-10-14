@@ -31,16 +31,26 @@ const { name, id = `${name}-input`, label, placeholder, type } = Astro.props;
       )
     }
   </div>
+  <div class="validation-display"></div>
 </div>
 
 <script>
-  const inputBoxes = document.getElementsByClassName("input-box");
+  const inputFields = document.getElementsByClassName("input-field");
 
-  for (const inputBox of inputBoxes) {
-    const passwordToggle = inputBox.querySelector(".password-toggle");
-    if (!passwordToggle) continue;
-
+  for (const inputField of inputFields) {
+    const inputBox = inputField.querySelector(".input-box")!;
     const input = inputBox.querySelector<HTMLInputElement>("input")!;
+
+    const passwordToggle = inputBox.querySelector(".password-toggle");
+    if (passwordToggle) initPasswordInput(input, passwordToggle);
+
+    const validationDisplay = inputField.querySelector<HTMLDivElement>(
+      ".validation-display",
+    )!;
+    initValidationDisplay(input, validationDisplay);
+  }
+
+  function initPasswordInput(input: HTMLInputElement, passwordToggle: Element) {
     const showButton =
       passwordToggle.querySelector<HTMLButtonElement>(".password-show")!;
     const hideButton =
@@ -56,6 +66,16 @@ const { name, id = `${name}-input`, label, placeholder, type } = Astro.props;
       hideButton.hidden = true;
       showButton.hidden = false;
       input.type = "password";
+    });
+  }
+
+  function initValidationDisplay(
+    input: HTMLInputElement,
+    validationDisplay: HTMLDivElement,
+  ) {
+    input.addEventListener("validated", (event: any) => {
+      const { message = "" } = event.detail;
+      validationDisplay.innerText = message;
     });
   }
 </script>
@@ -83,6 +103,9 @@ const { name, id = `${name}-input`, label, placeholder, type } = Astro.props;
     all: unset;
     background: none;
     width: 100%;
+  }
+  .input-box input:invalid {
+    text-decoration: red wavy underline;
   }
   .password-toggle {
     height: 100%;

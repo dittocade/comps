@@ -1,9 +1,25 @@
 ---
+import { actions } from "astro:actions";
+import { ZodError } from "zod";
+import { fromError } from "zod-validation-error";
 type Props = astroHTML.JSX.FormHTMLAttributes;
+
+const { action } = Astro.props;
+const astroActionName = new URL(action, Astro.url).searchParams.get(
+  "_astroAction",
+);
+const result =
+  astroActionName && Astro.getActionResult(actions[astroActionName]);
+
+let error = result?.error;
+if (error?.type === "AstroActionInputError") {
+  error = fromError(new ZodError(error.issues));
+}
 ---
 
 <form {...Astro.props}>
   <slot />
+  {error && <div class="form-error">{error}</div>}
 </form>
 
 <style>
