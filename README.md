@@ -1,6 +1,6 @@
-# Fancade Club Components
+# Dittocade Components
 
-Shared UI components for the Fancade Club.
+Shared UI components for the Dittocade.
 
 ## Building
 
@@ -8,8 +8,8 @@ You'll need `git`, `node 18+` and `npm` to get started.
 
 ```sh
 # Cloning the repository
-git clone https://github.com/fancade-club/comp
-cd ./club
+git clone https://github.com/dittocade/comps
+cd ./comps
 
 # Installing dependencies
 npm ci
@@ -17,4 +17,4 @@ npm ci
 
 ## Disclaimer
 
-We are not affiliated with Fancade. See [our disclaimer](https://fancade.club/disclaimer). For inquiries please [contact us](https://fancade.club/contact).
+We are not affiliated with Fancade. See [our disclaimer](https://cade.party/disclaimer). For inquiries please [contact us](https://cade.party/contact).
